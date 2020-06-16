@@ -1,68 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Fundamental Study
+- 리액트를 공부하며 주요 개념들을 정리함.
+- 교재: 리액트를 다루는 기술 | 개정판(김민준 지음)
+- [리액트](https://ko.reactjs.org/)
 
-## Available Scripts
+![react logo](https://jeonghwan-kim.github.io/assets/imgs/2018/07/16/react-logo.png)
 
-In the project directory, you can run:
+## 리액트(React)의 탄생 배경
+### 웹 생태계의 성장
+자바스크립트(JavaScript)는 웹 브라우저에서 간단한 연산을 하거나 웹 페이지에서 간단한 동적 효과를 주기 위한 목적으로 만들어졌었다. 그러나 나날이 발전을 지속한 웹 생태계는 규모와 더불어 정교함이 과거와는 비교도 되지 않을 정도로 발전했다. 결국 단순한 바닐라 자바스크립트로 현재와 같은 웹앱을 만들기에는 효율적이지 못 했고, 그에 따라 각종 라이브러리와 프레임워크가 등장하기에 이르렀다.
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### UI(User Interface)에 집중한 리액트
+현재의 자바스크립트 라이브러리, 프레임워크로는 React, Vue, Angular가 대표적인 3대장으로 자리잡고 있다. 대다수의 라이브러리, 프레임워크들은 MVC(Model-View-Controller), MVVM(Model-View-View Model) 등의 아키텍처를 사용하며 이를 권장한다. 그런 가운데 리액트가 강조하는 지점은 상당히 단순하고 명쾌하다. **오직 뷰(View)!** , 리액트를 개발한 페이스북에서는 복잡하게 생각하지 않고 데이터가 바뀌면 기존의 뷰를 날려버리고 새로운 뷰를 렌더링 하기로 한 것이다.
