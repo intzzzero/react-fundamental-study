@@ -1,7 +1,7 @@
 ## React Fundamental Study
 - 리액트를 공부하며 주요 개념들을 정리함.
 - 교재: 리액트를 다루는 기술 | 개정판(김민준 지음)
-- [리액트](https://ko.reactjs.org/)
+- 참고: [리액트 공식문서](https://ko.reactjs.org/)
 
 ![react logo](https://jeonghwan-kim.github.io/assets/imgs/2018/07/16/react-logo.png)
 
