@@ -13,7 +13,13 @@
 현재의 자바스크립트 라이브러리, 프레임워크로는 React, Vue, Angular가 대표적인 3대장으로 자리잡고 있다. 대다수의 라이브러리, 프레임워크들은 MVC(Model-View-Controller), MVVM(Model-View-View Model) 등의 아키텍처를 사용하며 이를 권장한다. 그런 가운데 리액트가 강조하는 지점은 상당히 단순하고 명쾌하다. **오직 뷰(View)!** , 리액트를 개발한 페이스북에서는 복잡하게 생각하지 않고 데이터가 바뀌면 기존의 뷰를 날려버리고 새로운 뷰를 렌더링 하기로 한 것이다.
 
 ## Virtual DOM
-리액트가 지금과 같은 특징(상태변화가 생길 경우 리렌더링을 하는 방식)을 갖게 된 배경에는 Vitrual DOM이 있다. DOM(Document Object Model)은 이미 알고 있듯 자바스크립트로 HTML과 CSS를 조작할 수 있도록 하는 일종의 매개체이며 최상위에 Document 객체가 유일하게 존재하며 그 아래로 각종 요소(Element)들이 객체화 되어 나무가 가지를 치듯 이어져 있다 하여 DOM Tree라고도 부른다.
+리액트가 지금과 같은 특징(상태변화가 생길 경우 리렌더링을 하는 방식)을 갖게 된 배경에는 Vitrual DOM이 있다. DOM(Document Object Model)은 이미 알고 있듯 자바스크립트로 HTML과 CSS를 조작할 수 있도록 하는 일종의 매개체이며 최상위에 Document 객체가 유일하게 존재하며 그 아래로 각종 요소(Element)들이 객체화 되어 나무가 가지를 치듯 이어져 있다 하여 [DOM Tree](https://ko.javascript.info/dom-nodes)라고도 부른다.
+
+리액트의 Virtual DOM은 위와 같은 DOM의 사본이자, DOM을 조작하는 매개체의 역할을 한다. 구조 또한 DOM과 마찬가지로 하나의 root를 기준으로 요소들이 가지처럼 이어져 있다. 무엇보다도 Virtual DOM을 리액트의 철학을 담은 핵심 기능이라고 할 수 있는 이유는 Virtual DOM을 다음과 같이 이용하기 때문이다.
+
+1. 데이터를 업데이트 하면 전체 UI를 Virtual DOM에 리렌더링 한다.
+2. 이전 Virtual DOM과 새로운 Virtual DOM을 비교한다.
+3. 달라진 부분에 대하여 새로운 Virtual DOM을 적용한다.
 
 ## 조건부 렌더링
 
