@@ -1,9 +1,13 @@
 import React from 'react';
 import './App.css';
+import MyComponent from './MyComponent';
 
 function App() {
-	const name = undefined;
-	return <div className="App">{name || '이름이 없습니다.'}</div>;
+	return (
+		<div className="App">
+			<MyComponent>this is children</MyComponent>
+		</div>
+	);
 }
 
 export default App;

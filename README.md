@@ -34,3 +34,54 @@ function App() {
 ```
 
 위와 같이 만약 렌더링 해야 하는 값이 없을 경우에 오류나 `undefined`가 그대로 출력되는 것을 방지하기 위해 `||` 연산자를 이용할 수 있다. 이를 조금 응용한다면 연산자 위에 기본값을 넣는 등으로 활용할 수 있겠다.
+
+## 클래스형 컴포넌트와 함수형 컴포넌트의 차이
+가장 직관적으로 느낄 수 있는 차이점은 이름 그대로 클래스형 컴포넌트의 ES6에서 도입된 class 문법을 따르는 컴포넌트를 말하고, 함수형 컴포넌트는 함수 선언식이나 화살표 함수 등으로 작성된 컴포넌트를 말한다.
+
+함수형 컴포넌트에서 사용 가능한 Hooks와 같은 상태관리 라이브러리가 나오기 전에는 `state`를 사용하기 위해 클래스형 컴포넌트를 써야 했지만, 현재는 함수형 컴포넌트에서도 클래스형 컴포넌트와 마찬가지로 `useState`를 통한 상태관리가 가능해졌으므로 불편함 없이 사용 가능하다.
+
+또한, 미세하게나마 함수형 컴포넌트가 클래스형 컴포넌트에 비해 메모리 리소스를 덜 소모하며, 리액트 공식문서에서도 함수형 컴포넌트의 사용을 적극 권하고 있다.
+
+## props
+`props`는 properties의 줄임말로써 리액트 내에서 속성을 설정할 때 사용한다. `props`의 설정은 부모 컴포넌트에서 할 수 있으며, `props`를 전달받은 자식 컴포넌트에서는 읽기만 가능(read only)하다.
+
+부모 컴포넌트로부터 `props`를 받지 못 할 경우를 감안하여 `defaultProps`라는 것을 설정할 수 있으며, 자식 컴포넌트에서 아래와 같이 작성한다.
+
+```js
+import React from 'react';
+
+const MyComponent = props => {
+  return <div className="MyComponent">hello {props.name}</div>;
+};
+
+MyComponent.defaultProps = {
+  name: 'sooyoung'
+};
+
+export default MyComponent;
+```
+
+## children
+자바스크립트에서 `innerText`나 `innerHtml`과 같은 역할을 하는 것이 리액트의 `children`이다.
+`props`의 일종으로 부모 컴포넌트의 태그와 태그 사이에 있는 내용을 가져올 수 있다.
+
+**부모 컴포넌트**
+
+```js
+function App() {
+  return (
+    <div className="App">
+      <MyComponent>this is children</MyComponent>
+    </div>
+  );
+}
+```
+
+**자식 컴포넌트**
+
+```js
+const MyComponent = props => {
+  return <div className="MyComponent">{props.children}</div>;
+};
+```
+
