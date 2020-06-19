@@ -14,3 +14,23 @@
 
 ## Virtual DOM
 리액트가 지금과 같은 특징(상태변화가 생길 경우 리렌더링을 하는 방식)을 갖게 된 배경에는 Vitrual DOM이 있다. DOM(Document Object Model)은 이미 알고 있듯 자바스크립트로 HTML과 CSS를 조작할 수 있도록 하는 일종의 매개체이며 최상위에 Document 객체가 유일하게 존재하며 그 아래로 각종 요소(Element)들이 객체화 되어 나무가 가지를 치듯 이어져 있다 하여 DOM Tree라고도 부른다.
+
+## 조건부 렌더링
+
+```js
+function App() {
+  const name = 'codeAmeba';
+  return <div className="App">{name === 'codeAmeba' && <h1>hello {name}</h1>}</div>;
+}
+```
+
+위와 같이 `&&` 연산자를 이용하면 굳이 삼항 연산자를 쓸 필요 없이 특정 조건일 때에만 렌더링이 가능하다.
+
+```js
+function App() {
+  const name = undefined;
+  return <div className="App">{name || '이름이 없습니다.'}</div>;
+}
+```
+
+위와 같이 만약 렌더링 해야 하는 값이 없을 경우에 오류나 `undefined`가 그대로 출력되는 것을 방지하기 위해 `||` 연산자를 이용할 수 있다. 이를 조금 응용한다면 연산자 위에 기본값을 넣는 등으로 활용할 수 있겠다.
