@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import MyComponent from "./MyComponent";
+import Say from "./Say";
 
 function App() {
   return (
     <div className="App">
-      <MyComponent>this is children</MyComponent>
+      <Say />
     </div>
   );
 }

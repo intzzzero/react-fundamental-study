@@ -97,3 +97,78 @@ const MyComponent = props => {
 
 ## state
 리액트에서 `state`는 내부에서 바뀔 수 있는 값을 의미한다. 부모 컴포넌트가 자식 컴포넌트에게 `props`로 전달할 수 있는 값이며, 반드시 `setState`를 통해 해당 `state`가 자리하고 있는 컴포넌트에서만 변경할 수 있다.
+
+## 하나의 이벤트 두 개의 함수
+
+```js
+  render() {
+    const { number, fixedNumber } = this.state;
+    return (
+      <div>
+        <h1>{number}</h1>
+        <h1>{fixedNumber}</h1>
+        <button
+          onClick={() => {
+            this.setState({ number: number + 1 });
+            this.setState((prevState) => ({
+              number: prevState.number + 1,
+            }));
+          }}
+        >
+          BUTTON 1
+        </button>
+        <button
+          onClick={() => {
+            this.setState({ fixedNumber: fixedNumber + 1 }, () => {
+              console.log(this.state);
+            });
+          }}
+        >
+          BUTTON 2
+        </button>
+      </div>
+    );
+  }
+```
+
+위의 예시 코드와 같이 하나의 이벤트핸들러에 두 개의 함수를 넣을 수도 있다. 첫 번째 버튼의 두 `setState`를 동일하게 줄 경우 두 번째 함수는 블락되어 실행되지 않는다. 따라서 `prevState`라는 인자를 사용하여 2씩 증가하게 하는 방법이다.
+두 번째 버튼의 경우, `setState`의 두 번쨰 인자로 **콜백** 함수를 등록하여 처리한 예시이다.
+
+## 배열 비구조화 할당
+
+```js
+const { number, fixedNumber } = this.state;
+```
+
+위와 같이 클래스형 컴포넌트에서 `state`와 `props`를 렌더 함수 아래에 객체 비구조화 할당을 했던 것과 마찬가지로 함수형 컴포넌트에서는 **배열 비구조화 할당** 을 주로 사용한다. 기본적인 사용법은 객체 비구조화 할당과 다르지 않다.
+
+```js
+const arr = [1, 2, 3];
+const [ one, two, three ] = arr;
+```
+
+## useState
+함수형 컴포넌트에서 상태를 관리하는 도구로 사용하는 것이 `useState`이며, 아래와 같이 사용한다.
+
+```js
+import React, { useState } from "react";
+
+const Say = () => {
+  const [message, setMessage] = useState("");
+  const onClickEnter = () => setMessage("안녕하세요!");
+  const onClickLeave = () => setMessage("안녕히가세요!");
+  return (
+    <div>
+      <button onClick={onClickEnter}>입장</button>
+      <button onClick={onClickLeave}>퇴장</button>
+      <h1>{message}</h1>
+    </div>
+  );
+};
+
+export default Say;
+```
+
+클래스형 컴포넌트에서 `state`의 초깃값은 객체 형태를 하고 있지만, `useState`에서는 형태가 정해져 있지 않다. 숫자, 문자열, 객체, 배열 등 선택할 수 있는 값의 폭이 넓다는 게 특징이다.
+초깃값은 `useState`의 인자로 들어가는 값이다.
+
