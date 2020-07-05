@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const MyComponent = props => {
-	return <div className="MyComponent">{props.children}</div>;
+const MyComponent = (props) => {
+  return <div className="MyComponent">{props.children}</div>;
 };
 
 MyComponent.defaultProps = {
-	name: 'sooyoung'
+  name: "sooyoung",
 };
 
 export default MyComponent;

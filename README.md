@@ -51,7 +51,7 @@ function App() {
 ## props
 `props`는 properties의 줄임말로써 리액트 내에서 속성을 설정할 때 사용한다. `props`의 설정은 부모 컴포넌트에서 할 수 있으며, `props`를 전달받은 자식 컴포넌트에서는 읽기만 가능(read only)하다.
 
-부모 컴포넌트로부터 `props`를 받지 못 할 경우를 감안하여 `defaultProps`라는 것을 설정할 수 있으며, 자식 컴포넌트에서 아래와 같이 작성한다.
+부모 컴포넌트로부터 `props`를 받지 못 할 경우를 감안하여 `defaultProps`라는 것을 설정할 수 있으며, 자식 컴포넌트에서 아래와 같이 작성한다. 그리고, `propTypes`라는 것도 있으며 이를 통해 자식 컴포넌트에서 `props`의 데이터 타입을 지정할 수도 있다.
 
 ```js
 import React from 'react';
@@ -62,6 +62,10 @@ const MyComponent = props => {
 
 MyComponent.defaultProps = {
   name: 'sooyoung'
+};
+
+MyComponent.propTypes = {
+  name: PropTypes.string
 };
 
 export default MyComponent;
@@ -91,3 +95,5 @@ const MyComponent = props => {
 };
 ```
 
+## state
+리액트에서 `state`는 내부에서 바뀔 수 있는 값을 의미한다. 부모 컴포넌트가 자식 컴포넌트에게 `props`로 전달할 수 있는 값이며, 반드시 `setState`를 통해 해당 `state`가 자리하고 있는 컴포넌트에서만 변경할 수 있다.
